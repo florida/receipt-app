@@ -4,5 +4,12 @@
     <string name="app_name">ReceiptApp</string>
     <string name="action_settings">Settings</string>
     <string name="hello_world">Hello world!</string>
+    <string name="drawer_open">Open navigation drawer</string>
+    <string name="drawer_close">Close navigation drawer</string>
+    <string name="title_activity_add_receipt">AddReceiptActivity</string>
+    <string name="action_websearch">Web search</string>
+    <string name="title_activity_add_category">AddCategoryActivity</string>
+    <string name="title_activity_add_category_dialog">AddCategoryDialogActivity</string>
+    <string name="title_activity_about_app">AboutAppActivity</string>
 
 </resources>

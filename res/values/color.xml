@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:android="http://schemas.android.com/apk/res/android">       
+    <color name="nav_click">#363336</color> 
+    <color name="nav_highlighted">#292729</color>
+    <color name="nav_background">#191819</color>
+</resources>
