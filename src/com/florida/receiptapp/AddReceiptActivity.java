@@ -4,6 +4,8 @@ package com.florida.receiptapp;
 import java.util.List;
 
 import android.app.Activity;
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
@@ -13,6 +15,8 @@ import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.Toast;
 
+import com.florida.receiptapp.classes.Category;
+import com.florida.receiptapp.classes.Receipt;
 import com.parse.ParseException;
 import com.parse.ParseQuery;
 import com.parse.ParseQueryAdapter;
@@ -27,20 +31,17 @@ public class AddReceiptActivity extends Activity {
 		super.onCreate(savedInstanceState);
 		 setContentView(R.layout.activity_add_receipt);
 		 
-		 Intent intent = getIntent();
-		 
 		 categoryadapter = new ParseQueryAdapter<Category>(this, Category.class);
 		 categoryadapter.setTextKey("name");
-		 
+		 categoryadapter.setPaginationEnabled(false);
 		 category_spinner = (Spinner) findViewById(R.id.spn_category);
-		 
 		 category_spinner.setAdapter(categoryadapter);
 		 
+		 Intent intent = getIntent();
 		 String receipt_id = intent.getStringExtra("receipt_id");
 		 
-		 if (receipt_id == null) {
-			 category_spinner.setSelection(-1);
-		 } else {
+		 if (receipt_id != null) {
+
 			 ParseQuery<Receipt> query = ParseQuery.getQuery("Receipt");
 			 try {
 				receipt = query.get(receipt_id);
@@ -56,43 +57,36 @@ public class AddReceiptActivity extends Activity {
 			 setEditTextString(R.id.edtxt_gst, String.valueOf(receipt.getGst()));
 			 setEditTextString(R.id.edtxt_pst, String.valueOf(receipt.getPst()));
 			 
-			 categoryadapter.addOnQueryLoadListener(new OnQueryLoadListener<Category>() {
+		 }
+		 
+		 categoryadapter.addOnQueryLoadListener(new OnQueryLoadListener<Category>() {
 
-				@Override
-				public void onLoaded(List<Category> arg0, Exception arg1) {
-					// TODO Auto-generated method stub
-					
-					Toast.makeText(AddReceiptActivity.this, String.valueOf(categoryadapter.getCount()), Toast.LENGTH_LONG).show();
-					
+			@Override
+			public void onLoaded(List<Category> arg0, Exception arg1) {
+				if (receipt == null) {
+					category_spinner.setSelection(getIndex(category_spinner, "6gvRYQYqFj"));
+				} else {
 					category_spinner.setSelection(getIndex(category_spinner, receipt.getCategoryId()));
 				}
+				
+			}
 
-				@Override
-				public void onLoading() {
-					// TODO Auto-generated method stub
-					
-				}
-			 });
-			 
-			 
-		 }
+			@Override
+			public void onLoading() {
+			}
+		 });
+		 
 
 	}
 	
-	private int getIndex(Spinner spinner, String string) {
-		
+	private int getIndex(Spinner spinner, String string) {	
 		int index = 0;
-		String x = receipt.getCategoryId();
-		
-		
+	
 		for (int i = 0; i < spinner.getAdapter().getCount(); i++) {
-			
-			
 			if (((Category) spinner.getItemAtPosition(i)).getObjectId().equals(string)) {
 				index = i;
 			}
 		}
-		
 		return index;
 	}
 
@@ -120,6 +114,36 @@ public class AddReceiptActivity extends Activity {
 			receipt.saveInBackground();
 			
 			setResult(Activity.RESULT_OK);
+			finish();
+			break;
+		case R.id.cancel_or_delete:
+			if (receipt == null) {
+				finish(); 
+			} else {
+				AlertDialog.Builder alert_dialog = new AlertDialog.Builder(AddReceiptActivity.this);
+				alert_dialog.setTitle("Confirm Delete...");
+				alert_dialog.setMessage("Are you sure you want to delete the receipt?");
+				alert_dialog.setIcon(R.drawable.ic_action_navigation_cancel);
+				alert_dialog.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+					
+					@Override
+					public void onClick(DialogInterface dialog, int which) {
+						Toast.makeText(AddReceiptActivity.this, "Receipt deleted", Toast.LENGTH_LONG).show();
+						receipt.deleteInBackground();
+						setResult(Activity.RESULT_OK);
+						finish();
+					}
+				});
+				alert_dialog.setNegativeButton("No", new DialogInterface.OnClickListener() {
+					
+					@Override
+					public void onClick(DialogInterface dialog, int which) {
+						dialog.cancel();
+					}
+				});
+				alert_dialog.show();
+			}
+			
 			break;
 		}
 		return super.onOptionsItemSelected(item);
