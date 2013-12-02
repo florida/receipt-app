@@ -1,22 +1,22 @@
 package com.florida.receiptapp.classes;
 
-import android.graphics.Bitmap;
+import android.content.Context;
 
 public class GridItem {
-	Bitmap image;
+	int image;
 	String title;
 	
-	public GridItem(Bitmap image, String title) {
+	public GridItem(String image, String title, Context context) {
 		super();
-		this.image = image;
+		this.image = context.getResources().getIdentifier(image, "drawable", context.getPackageName()); 
 		this.title = title;
 	}
 	
-	public Bitmap getImage() {
+	public int getImage() {
 		return image;
 	}
 	
-	public void setImage(Bitmap image) {
+	public void setImage(int image) {
 		this.image = image;
 	}
 	
