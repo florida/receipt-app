@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:custom="http://schemas.android.com/apk/res-auto">
+
+    <PreferenceCategory android:title="KAWL">
+	    
+	    <afzkl.development.colorpickerview.preference.ColorPickerPreference
+	            android:defaultValue="0xFF000000"
+	            android:key="fontcolod"
+	            android:summary="Change article font color"
+	            android:title="Set Article Font Color" />
+	    
+	    <afzkl.development.colorpickerview.preference.ColorPickerPreference
+	            android:defaultValue="0xFF000000"
+	            android:key="fontkawlor"
+	            android:summary="Change article background color"
+	            android:title="Set Article Background Color" />
+	    
+	</PreferenceCategory>
+	
+    <PreferenceCategory android:title="SHINS">
+	    
+	    <afzkl.development.colorpickerview.preference.ColorPickerPreference
+	            android:defaultValue="0xFF000000"
+	            android:key="fontcolozd"
+	            android:summary="Change article font color"
+	            android:title="Set Article Font Color" />
+	    
+	    <afzkl.development.colorpickerview.preference.ColorPickerPreference
+	            android:defaultValue="0xFF000000"
+	            android:key="dinbats"
+	            android:summary="Change article background color"
+	            android:title="Set Article Background Color" />
+	    <ListPreference
+            android:key="prefSyncFrequency"
+            android:entries="@array/array_default_sort"
+            android:summary="maybe just a little" 
+            android:entryValues="@array/array_default_sort_values"
+            android:title="maybe it's okay" />
+	</PreferenceCategory>
+    
+    
+</PreferenceScreen>
