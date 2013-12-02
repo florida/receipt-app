@@ -2,8 +2,6 @@ package com.florida.receiptapp.fragments;
 
 import com.florida.receiptapp.AddCategoryDialogActivity;
 import com.florida.receiptapp.R;
-import com.florida.receiptapp.R.id;
-import com.florida.receiptapp.R.layout;
 import com.florida.receiptapp.adapters.CategoryAdapter;
 import com.florida.receiptapp.classes.Category;
 
@@ -28,7 +26,7 @@ public class CategoriesFragment extends Fragment {
 			Bundle savedInstanceState) {
 		// TODO Auto-generated method stub
 		
-		View view = inflater.inflate(R.layout.category_list_view, container, false);
+		View view = inflater.inflate(R.layout.fragment_category, container, false);
 		
 		Button btn_add_category = (Button) view.findViewById(R.id.btn_add_category);
 		btn_add_category.setOnClickListener(new OnClickListener() {
@@ -39,7 +37,7 @@ public class CategoriesFragment extends Fragment {
 				startActivityForResult(intent, REQUEST_CODE_STANDARD);
 			}
 		});
-		ListView listview = (ListView) view.findViewById(R.id.category_listview);
+		ListView listview = (ListView) view.findViewById(R.id.listview_category);
 		adapter = new CategoryAdapter(getActivity());
 		listview.setAdapter(adapter);
 		listview.setOnItemClickListener(new OnItemClickListener() {
