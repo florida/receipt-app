@@ -27,7 +27,7 @@ public final class R {
 		public static final int preference_preview_color_panel = 0x7f050003;
 	}
 	public static final class layout {
-		public static final int dialog_color_picker = 0x7f030004;
+		public static final int dialog_color_picker = 0x7f030003;
 		public static final int preference_preview_layout = 0x7f03000b;
 	}
 	public static final class string {

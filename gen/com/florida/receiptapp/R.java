@@ -9,14 +9,55 @@ package com.florida.receiptapp;
 
 public final class R {
     public static final class array {
-        public static final int array_menu_list=0x7f040000;
+        public static final int array_default_sort=0x7f080000;
+        public static final int array_default_sort_values=0x7f080001;
     }
     public static final class attr {
+        /** <p>May be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
+or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
+<p>May be a string value, using '\\;' to escape characters such as '\\n' or '\\uxxxx' for a unicode character.
+         */
+        public static final int alphaChannelText=0x7f010003;
+        /** <p>May be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
+or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
+<p>May be a boolean value, either "<code>true</code>" or "<code>false</code>".
+         */
+        public static final int alphaChannelVisible=0x7f010002;
+        /** <p>May be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
+or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
+<p>May be a color value, in the form of "<code>#<i>rgb</i></code>", "<code>#<i>argb</i></code>",
+"<code>#<i>rrggbb</i></code>", or "<code>#<i>aarrggbb</i></code>".
+         */
+        public static final int colorPickerBorderColor=0x7f010005;
+        /** <p>May be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
+or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
+<p>May be a color value, in the form of "<code>#<i>rgb</i></code>", "<code>#<i>argb</i></code>",
+"<code>#<i>rrggbb</i></code>", or "<code>#<i>aarrggbb</i></code>".
+         */
+        public static final int colorPickerSliderColor=0x7f010004;
+        /** <p>Must be an integer value, such as "<code>100</code>".
+<p>This may also be a reference to a resource (in the form
+"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
+theme attribute (in the form
+"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
+containing a value of this type.
+         */
+        public static final int min=0x7f010006;
+        /** <p>May be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
+or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
+<p>May be a boolean value, either "<code>true</code>" or "<code>false</code>".
+         */
+        public static final int showDialogTitle=0x7f010000;
+        /** <p>May be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
+or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
+<p>May be a boolean value, either "<code>true</code>" or "<code>false</code>".
+         */
+        public static final int showSelectedColorInList=0x7f010001;
     }
     public static final class color {
-        public static final int nav_background=0x7f050002;
-        public static final int nav_click=0x7f050000;
-        public static final int nav_highlighted=0x7f050001;
+        public static final int nav_background=0x7f090002;
+        public static final int nav_click=0x7f090000;
+        public static final int nav_highlighted=0x7f090001;
     }
     public static final class dimen {
         /**  Default screen margins, per the Android Design guidelines. 
@@ -25,8 +66,8 @@ public final class R {
          screen margins) for sw720dp devices (e.g. 10" tablets) in landscape here.
     
          */
-        public static final int activity_horizontal_margin=0x7f060000;
-        public static final int activity_vertical_margin=0x7f060001;
+        public static final int activity_horizontal_margin=0x7f0a0000;
+        public static final int activity_vertical_margin=0x7f0a0001;
     }
     public static final class drawable {
         public static final int action_search=0x7f020000;
@@ -49,85 +90,106 @@ public final class R {
         public static final int ic_receipt_add=0x7f020011;
         public static final int ic_receipts=0x7f020012;
         public static final int ic_settings=0x7f020013;
-        public static final int listitem_background=0x7f020014;
-        public static final int navdrawer_listselector=0x7f020015;
-        public static final int placeholder1=0x7f020016;
-        public static final int receipt=0x7f020017;
-        public static final int receipt_add=0x7f020018;
-        public static final int receipts=0x7f020019;
+        public static final int icon=0x7f020014;
+        public static final int listitem_background=0x7f020015;
+        public static final int navdrawer_listselector=0x7f020016;
+        public static final int placeholder1=0x7f020017;
+        public static final int receipt=0x7f020018;
+        public static final int receipt_add=0x7f020019;
+        public static final int receipts=0x7f02001a;
     }
     public static final class id {
-        public static final int action_settings=0x7f0a0019;
-        public static final int add_receipt=0x7f0a001a;
-        public static final int btn_add_category=0x7f0a000c;
-        public static final int btn_add_receipt=0x7f0a0010;
-        public static final int btn_cancel_create_category=0x7f0a0002;
-        public static final int btn_create_category=0x7f0a0001;
-        public static final int cancel_or_delete=0x7f0a001b;
-        public static final int category_name=0x7f0a0016;
-        public static final int drawer_layout=0x7f0a0009;
-        public static final int edtxt_category_name=0x7f0a0000;
-        public static final int edtxt_gst=0x7f0a0007;
-        public static final int edtxt_pst=0x7f0a0008;
-        public static final int edtxt_store_name=0x7f0a0003;
-        public static final int edtxt_total=0x7f0a0004;
-        public static final int frame_content=0x7f0a000a;
-        public static final int gridView1=0x7f0a000e;
-        public static final int item_text=0x7f0a0012;
-        public static final int listview_category=0x7f0a000d;
-        public static final int listview_drawer_left=0x7f0a000b;
-        public static final int listview_receipt=0x7f0a0011;
-        public static final int navmenuitem_icon=0x7f0a0013;
-        public static final int navmenuitem_label=0x7f0a0014;
-        public static final int navmenusection_label=0x7f0a0015;
-        public static final int spn_category=0x7f0a0005;
-        public static final int spn_receipt_categories=0x7f0a000f;
-        public static final int store_name=0x7f0a0017;
-        public static final int total=0x7f0a0018;
-        public static final int txt_taxes=0x7f0a0006;
+        public static final int action_settings=0x7f050021;
+        public static final int add_receipt=0x7f050022;
+        public static final int btn_add_category=0x7f050012;
+        public static final int btn_add_receipt=0x7f050016;
+        public static final int btn_cancel_create_category=0x7f050007;
+        public static final int btn_create_category=0x7f050006;
+        public static final int cancel_or_delete=0x7f050023;
+        public static final int category_name=0x7f05001e;
+        public static final int color_panel_new=0x7f050002;
+        public static final int color_panel_old=0x7f050001;
+        public static final int color_picker_view=0x7f050000;
+        public static final int dialog_color_picker_extra_layout_landscape=0x7f050004;
+        public static final int drawer_layout=0x7f05000e;
+        public static final int edtxt_category_name=0x7f050005;
+        public static final int edtxt_gst=0x7f05000c;
+        public static final int edtxt_pst=0x7f05000d;
+        public static final int edtxt_store_name=0x7f050008;
+        public static final int edtxt_total=0x7f050009;
+        public static final int frame_content=0x7f05000f;
+        public static final int gridView1=0x7f050014;
+        public static final int item_text=0x7f050018;
+        public static final int layout1=0x7f050011;
+        public static final int listview_category=0x7f050013;
+        public static final int listview_drawer_left=0x7f050010;
+        public static final int listview_receipt=0x7f050017;
+        public static final int navmenuitem_icon=0x7f050019;
+        public static final int navmenuitem_label=0x7f05001a;
+        public static final int navmenusection_label=0x7f05001b;
+        public static final int number_picker=0x7f05001d;
+        public static final int preference_preview_color_panel=0x7f050003;
+        public static final int spn_category=0x7f05000a;
+        public static final int spn_receipt_categories=0x7f050015;
+        public static final int store_name=0x7f05001f;
+        public static final int text_dialog_message=0x7f05001c;
+        public static final int total=0x7f050020;
+        public static final int txt_taxes=0x7f05000b;
     }
     public static final class layout {
         public static final int activity_add_category=0x7f030000;
         public static final int activity_add_receipt=0x7f030001;
         public static final int activity_main=0x7f030002;
-        public static final int fragment_category=0x7f030003;
-        public static final int fragment_home=0x7f030004;
-        public static final int fragment_receipts=0x7f030005;
-        public static final int home_row_grid=0x7f030006;
-        public static final int navdrawer_item=0x7f030007;
-        public static final int navdrawer_section=0x7f030008;
-        public static final int row_category=0x7f030009;
-        public static final int row_receipts=0x7f03000a;
+        public static final int dialog_color_picker=0x7f030003;
+        public static final int fragment_category=0x7f030004;
+        public static final int fragment_home=0x7f030005;
+        public static final int fragment_receipts=0x7f030006;
+        public static final int home_row_grid=0x7f030007;
+        public static final int navdrawer_item=0x7f030008;
+        public static final int navdrawer_section=0x7f030009;
+        public static final int preference_number_picker_dialog=0x7f03000a;
+        public static final int preference_preview_layout=0x7f03000b;
+        public static final int row_category=0x7f03000c;
+        public static final int row_receipts=0x7f03000d;
     }
     public static final class menu {
-        public static final int about_app=0x7f090000;
-        public static final int main=0x7f090001;
-        public static final int receipt_add=0x7f090002;
+        public static final int about_app=0x7f0b0000;
+        public static final int main=0x7f0b0001;
+        public static final int receipt_add=0x7f0b0002;
+        public static final int settings=0x7f0b0003;
     }
     public static final class string {
-        public static final int action_settings=0x7f070001;
-        public static final int app_name=0x7f070000;
-        public static final int drawer_close=0x7f070003;
-        public static final int drawer_open=0x7f070002;
-        public static final int lbl_add_category=0x7f070016;
-        public static final int lbl_add_receipt=0x7f070007;
-        public static final int lbl_cancel=0x7f070008;
-        public static final int lbl_category=0x7f07000f;
-        public static final int lbl_create=0x7f07000b;
-        public static final int lbl_enter_gst=0x7f070013;
-        public static final int lbl_enter_name=0x7f07000a;
-        public static final int lbl_enter_pst=0x7f070015;
-        public static final int lbl_enter_store_name=0x7f07000d;
-        public static final int lbl_enter_total=0x7f070010;
-        public static final int lbl_gst=0x7f070012;
-        public static final int lbl_name=0x7f070009;
-        public static final int lbl_pst=0x7f070014;
-        public static final int lbl_store_name=0x7f07000c;
-        public static final int lbl_taxes=0x7f070011;
-        public static final int lbl_total=0x7f07000e;
-        public static final int title_activity_about_app=0x7f070006;
-        public static final int title_activity_add_category_dialog=0x7f070005;
-        public static final int title_activity_add_receipt=0x7f070004;
+        public static final int action_settings=0x7f060007;
+        public static final int app_name=0x7f060000;
+        public static final int drawer_close=0x7f060009;
+        public static final int drawer_open=0x7f060008;
+        public static final int hello_world=0x7f06001e;
+        public static final int lbl_add_category=0x7f06001c;
+        public static final int lbl_add_receipt=0x7f06000d;
+        public static final int lbl_cancel=0x7f06000e;
+        public static final int lbl_category=0x7f060015;
+        public static final int lbl_create=0x7f060011;
+        public static final int lbl_enter_gst=0x7f060019;
+        public static final int lbl_enter_name=0x7f060010;
+        public static final int lbl_enter_pst=0x7f06001b;
+        public static final int lbl_enter_store_name=0x7f060013;
+        public static final int lbl_enter_total=0x7f060016;
+        public static final int lbl_gst=0x7f060018;
+        public static final int lbl_name=0x7f06000f;
+        public static final int lbl_pst=0x7f06001a;
+        public static final int lbl_store_name=0x7f060012;
+        public static final int lbl_taxes=0x7f060017;
+        public static final int lbl_total=0x7f060014;
+        public static final int pref_key_category_background_color=0x7f060005;
+        public static final int pref_key_receipt_list_default_sort=0x7f060006;
+        public static final int pref_key_receipt_list_font_size=0x7f060004;
+        public static final int pref_key_receipts_background_color=0x7f060003;
+        public static final int pref_title_categories_list=0x7f060002;
+        public static final int pref_title_receipts_list=0x7f060001;
+        public static final int title_activity_about_app=0x7f06000c;
+        public static final int title_activity_add_category_dialog=0x7f06000b;
+        public static final int title_activity_add_receipt=0x7f06000a;
+        public static final int title_activity_settings=0x7f06001d;
     }
     public static final class style {
         /** 
@@ -151,9 +213,152 @@ public final class R {
     
  API 14 theme customizations can go here. 
          */
-        public static final int AppBaseTheme=0x7f080000;
+        public static final int AppBaseTheme=0x7f070001;
         /**  Application theme. 
          */
-        public static final int AppTheme=0x7f080001;
+        public static final int AppTheme=0x7f070002;
+        public static final int dialog_color_pciker_view_portrait=0x7f070000;
     }
+    public static final class xml {
+        public static final int settings=0x7f040000;
+    }
+    public static final class styleable {
+        /** Attributes that can be used with a ColorPickerPreference.
+           <p>Includes the following attributes:</p>
+           <table>
+           <colgroup align="left" />
+           <colgroup align="left" />
+           <tr><th>Attribute</th><th>Description</th></tr>
+           <tr><td><code>{@link #ColorPickerPreference_showDialogTitle com.florida.receiptapp:showDialogTitle}</code></td><td></td></tr>
+           <tr><td><code>{@link #ColorPickerPreference_showSelectedColorInList com.florida.receiptapp:showSelectedColorInList}</code></td><td></td></tr>
+           </table>
+           @see #ColorPickerPreference_showDialogTitle
+           @see #ColorPickerPreference_showSelectedColorInList
+         */
+        public static final int[] ColorPickerPreference = {
+            0x7f010000, 0x7f010001
+        };
+        /**
+          <p>This symbol is the offset where the {@link com.florida.receiptapp.R.attr#showDialogTitle}
+          attribute's value can be found in the {@link #ColorPickerPreference} array.
+
+
+          <p>May be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
+or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
+<p>May be a boolean value, either "<code>true</code>" or "<code>false</code>".
+          @attr name com.florida.receiptapp:showDialogTitle
+        */
+        public static final int ColorPickerPreference_showDialogTitle = 0;
+        /**
+          <p>This symbol is the offset where the {@link com.florida.receiptapp.R.attr#showSelectedColorInList}
+          attribute's value can be found in the {@link #ColorPickerPreference} array.
+
+
+          <p>May be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
+or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
+<p>May be a boolean value, either "<code>true</code>" or "<code>false</code>".
+          @attr name com.florida.receiptapp:showSelectedColorInList
+        */
+        public static final int ColorPickerPreference_showSelectedColorInList = 1;
+        /** Attributes that can be used with a ColorPickerView.
+           <p>Includes the following attributes:</p>
+           <table>
+           <colgroup align="left" />
+           <colgroup align="left" />
+           <tr><th>Attribute</th><th>Description</th></tr>
+           <tr><td><code>{@link #ColorPickerView_alphaChannelText com.florida.receiptapp:alphaChannelText}</code></td><td></td></tr>
+           <tr><td><code>{@link #ColorPickerView_alphaChannelVisible com.florida.receiptapp:alphaChannelVisible}</code></td><td></td></tr>
+           <tr><td><code>{@link #ColorPickerView_colorPickerBorderColor com.florida.receiptapp:colorPickerBorderColor}</code></td><td></td></tr>
+           <tr><td><code>{@link #ColorPickerView_colorPickerSliderColor com.florida.receiptapp:colorPickerSliderColor}</code></td><td></td></tr>
+           </table>
+           @see #ColorPickerView_alphaChannelText
+           @see #ColorPickerView_alphaChannelVisible
+           @see #ColorPickerView_colorPickerBorderColor
+           @see #ColorPickerView_colorPickerSliderColor
+         */
+        public static final int[] ColorPickerView = {
+            0x7f010002, 0x7f010003, 0x7f010004, 0x7f010005
+        };
+        /**
+          <p>This symbol is the offset where the {@link com.florida.receiptapp.R.attr#alphaChannelText}
+          attribute's value can be found in the {@link #ColorPickerView} array.
+
+
+          <p>May be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
+or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
+<p>May be a string value, using '\\;' to escape characters such as '\\n' or '\\uxxxx' for a unicode character.
+          @attr name com.florida.receiptapp:alphaChannelText
+        */
+        public static final int ColorPickerView_alphaChannelText = 1;
+        /**
+          <p>This symbol is the offset where the {@link com.florida.receiptapp.R.attr#alphaChannelVisible}
+          attribute's value can be found in the {@link #ColorPickerView} array.
+
+
+          <p>May be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
+or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
+<p>May be a boolean value, either "<code>true</code>" or "<code>false</code>".
+          @attr name com.florida.receiptapp:alphaChannelVisible
+        */
+        public static final int ColorPickerView_alphaChannelVisible = 0;
+        /**
+          <p>This symbol is the offset where the {@link com.florida.receiptapp.R.attr#colorPickerBorderColor}
+          attribute's value can be found in the {@link #ColorPickerView} array.
+
+
+          <p>May be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
+or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
+<p>May be a color value, in the form of "<code>#<i>rgb</i></code>", "<code>#<i>argb</i></code>",
+"<code>#<i>rrggbb</i></code>", or "<code>#<i>aarrggbb</i></code>".
+          @attr name com.florida.receiptapp:colorPickerBorderColor
+        */
+        public static final int ColorPickerView_colorPickerBorderColor = 3;
+        /**
+          <p>This symbol is the offset where the {@link com.florida.receiptapp.R.attr#colorPickerSliderColor}
+          attribute's value can be found in the {@link #ColorPickerView} array.
+
+
+          <p>May be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
+or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
+<p>May be a color value, in the form of "<code>#<i>rgb</i></code>", "<code>#<i>argb</i></code>",
+"<code>#<i>rrggbb</i></code>", or "<code>#<i>aarrggbb</i></code>".
+          @attr name com.florida.receiptapp:colorPickerSliderColor
+        */
+        public static final int ColorPickerView_colorPickerSliderColor = 2;
+        /**  note: to re-use an existing Android attribute not already used by the superclass, name should have prefix "android:" and do not define a format 
+           <p>Includes the following attributes:</p>
+           <table>
+           <colgroup align="left" />
+           <colgroup align="left" />
+           <tr><th>Attribute</th><th>Description</th></tr>
+           <tr><td><code>{@link #NumberPickerDialogPreference_android_max android:max}</code></td><td></td></tr>
+           <tr><td><code>{@link #NumberPickerDialogPreference_min com.florida.receiptapp:min}</code></td><td></td></tr>
+           </table>
+           @see #NumberPickerDialogPreference_android_max
+           @see #NumberPickerDialogPreference_min
+         */
+        public static final int[] NumberPickerDialogPreference = {
+            0x01010136, 0x7f010006
+        };
+        /**
+          <p>This symbol is the offset where the {@link android.R.attr#max}
+          attribute's value can be found in the {@link #NumberPickerDialogPreference} array.
+          @attr name android:max
+        */
+        public static final int NumberPickerDialogPreference_android_max = 0;
+        /**
+          <p>This symbol is the offset where the {@link com.florida.receiptapp.R.attr#min}
+          attribute's value can be found in the {@link #NumberPickerDialogPreference} array.
+
+
+          <p>Must be an integer value, such as "<code>100</code>".
+<p>This may also be a reference to a resource (in the form
+"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
+theme attribute (in the form
+"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
+containing a value of this type.
+          @attr name com.florida.receiptapp:min
+        */
+        public static final int NumberPickerDialogPreference_min = 1;
+    };
 }
