@@ -6,14 +6,7 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import com.florida.receiptapp.R;
-import com.florida.receiptapp.R.id;
-import com.florida.receiptapp.R.layout;
 import com.florida.receiptapp.classes.Receipt;
-import com.parse.GetDataCallback;
-import com.parse.Parse;
-import com.parse.ParseException;
-import com.parse.ParseFile;
-import com.parse.ParseImageView;
 import com.parse.ParseQuery;
 import com.parse.ParseQueryAdapter;
 
@@ -25,6 +18,7 @@ public class ReceiptListAdapter extends ParseQueryAdapter<Receipt> {
 				// Here we can configure a ParseQuery to display
 				// only top-rated meals.
 				ParseQuery<Receipt> query = ParseQuery.getQuery("Receipt");
+				query.setCachePolicy(ParseQuery.CachePolicy.NETWORK_ELSE_CACHE);
 				return query;
 			}
 		});
@@ -48,7 +42,7 @@ public class ReceiptListAdapter extends ParseQueryAdapter<Receipt> {
 	public View getItemView(Receipt receipt, View v, ViewGroup parent) {
 
 		if (v == null) {
-			v = View.inflate(getContext(), R.layout.receipt_list_row, null);
+			v = View.inflate(getContext(), R.layout.row_receipts, null);
 		}
 
 		super.getItemView(receipt, v, parent);
