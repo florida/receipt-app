@@ -34,10 +34,6 @@
             android:label="@string/title_activity_add_receipt" >
         </activity>
         <activity
-            android:name="com.florida.receiptapp.AddCategoryActivity"
-            android:label="@string/title_activity_add_category" >
-        </activity>
-        <activity
             android:name="com.florida.receiptapp.AddCategoryDialogActivity"
             android:label="@string/title_activity_add_category_dialog"
             android:theme="@android:style/Theme.DeviceDefault.Light.Dialog" >
