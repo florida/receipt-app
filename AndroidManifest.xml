@@ -42,6 +42,10 @@
             android:name="com.florida.receiptapp.AboutAppActivity"
             android:label="@string/title_activity_about_app" >
         </activity>
+        <activity
+            android:name="com.florida.receiptapp.SettingsActivity"
+            android:label="@string/title_activity_settings" >
+        </activity>
     </application>
 
 </manifest>
