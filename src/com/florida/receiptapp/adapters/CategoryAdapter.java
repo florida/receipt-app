@@ -6,8 +6,6 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import com.florida.receiptapp.R;
-import com.florida.receiptapp.R.id;
-import com.florida.receiptapp.R.layout;
 import com.florida.receiptapp.classes.Category;
 import com.parse.ParseQuery;
 import com.parse.ParseQueryAdapter;
@@ -19,7 +17,8 @@ public class CategoryAdapter extends ParseQueryAdapter<Category>{
 			public ParseQuery<Category> create() {
 				// Here we can configure a ParseQuery to display
 				// only top-rated meals.
-				ParseQuery query = ParseQuery.getQuery("Category");
+				ParseQuery<Category> query = ParseQuery.getQuery("Category");
+				query.setCachePolicy(ParseQuery.CachePolicy.NETWORK_ELSE_CACHE);
 				return query;
 			}
 		});
@@ -29,7 +28,7 @@ public class CategoryAdapter extends ParseQueryAdapter<Category>{
 	public View getItemView(Category category, View v, ViewGroup parent) {
 
 		if (v == null) {
-			v = View.inflate(getContext(), R.layout.category_list_row, null);
+			v = View.inflate(getContext(), R.layout.row_category, null);
 		}
 
 		super.getItemView(category, v, parent);
