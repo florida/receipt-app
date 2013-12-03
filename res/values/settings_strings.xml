@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="pref_title_receipts_list">Receipts List</string>
+    <string name="pref_title_categories_list">Categories List</string>
+    <string name="pref_key_receipts_background_color">receipts_background_color</string>
+    <string name="pref_key_receipt_list_font_size">receipt_list_font_size</string>
+    <string name="pref_key_category_background_color">category_background_color</string>
+    <string name="pref_key_receipt_list_default_sort">receipt_list_default_sort</string>
+</resources>
