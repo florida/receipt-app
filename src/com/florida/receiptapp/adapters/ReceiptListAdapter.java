@@ -9,6 +9,7 @@ import com.florida.receiptapp.R;
 import com.florida.receiptapp.classes.Receipt;
 import com.parse.ParseQuery;
 import com.parse.ParseQueryAdapter;
+import com.parse.ParseUser;
 
 public class ReceiptListAdapter extends ParseQueryAdapter<Receipt> {
 //public static String category_id = null; 
@@ -18,6 +19,7 @@ public class ReceiptListAdapter extends ParseQueryAdapter<Receipt> {
 				// Here we can configure a ParseQuery to display
 				// only top-rated meals.
 				ParseQuery<Receipt> query = ParseQuery.getQuery("Receipt");
+				query.whereEqualTo("user", ParseUser.getCurrentUser());
 				query.setCachePolicy(ParseQuery.CachePolicy.NETWORK_ELSE_CACHE);
 				return query;
 			}
@@ -30,6 +32,7 @@ public class ReceiptListAdapter extends ParseQueryAdapter<Receipt> {
 				// Here we can configure a ParseQuery to display
 				// only top-rated meals.
 				ParseQuery<Receipt> query = ParseQuery.getQuery("Receipt");
+				query.whereEqualTo("user", ParseUser.getCurrentUser());
 				query.whereEqualTo("category_id", category_id);
 				return query;
 			}
