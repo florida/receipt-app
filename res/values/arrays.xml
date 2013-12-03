@@ -1,13 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string-array name="array_menu_list">
-        <item>Home</item>
-        <item>Venus</item>
-        <item>Earth</item>
-        <item>Mars</item>
-        <item>Jupiter</item>
-        <item>Saturn</item>
-        <item>Uranus</item>
-        <item>Neptune</item>
+    <string-array name="array_default_sort">
+        <item>All</item>
+        <item>Uncategorized</item>
+    </string-array>
+    
+    <string-array name="array_default_sort_values">
+        <item>H9MEsdbCZT</item>
+        <item>6gvRYQYqFj</item>
     </string-array>
 </resources>
