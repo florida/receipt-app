@@ -20,6 +20,7 @@ import com.florida.receiptapp.classes.Receipt;
 import com.parse.ParseException;
 import com.parse.ParseQuery;
 import com.parse.ParseQueryAdapter;
+import com.parse.ParseUser;
 import com.parse.ParseQueryAdapter.OnQueryLoadListener;
 
 public class AddReceiptActivity extends Activity {
@@ -34,6 +35,7 @@ public class AddReceiptActivity extends Activity {
 				public ParseQuery<Category> create() {
 					ParseQuery<Category> query = ParseQuery.getQuery("Category");
 					query.setCachePolicy(ParseQuery.CachePolicy.NETWORK_ELSE_CACHE);
+					query.whereEqualTo("user", ParseUser.getCurrentUser());
 					return query;
 				}
 			});
@@ -70,9 +72,9 @@ public class AddReceiptActivity extends Activity {
 			@Override
 			public void onLoaded(List<Category> arg0, Exception arg1) {
 				if (receipt == null) {
-					category_spinner.setSelection(CommonFunctions.getIndex(category_spinner, "6gvRYQYqFj"));
+					category_spinner.setSelection(CommonFunctions.getIndex(category_spinner, "Uncategorized"));
 				} else {
-					category_spinner.setSelection(CommonFunctions.getIndex(category_spinner, receipt.getCategoryId()));
+					category_spinner.setSelection(CommonFunctions.getIndex(category_spinner, receipt.getCategoryName()));
 				}
 				
 			}
@@ -113,8 +115,8 @@ public class AddReceiptActivity extends Activity {
 			receipt.setGst(getEditTextFloat(R.id.edtxt_gst));
 			receipt.setPst(getEditTextFloat(R.id.edtxt_pst));
 			receipt.setCategoryId(((Category) category_spinner.getSelectedItem()).getObjectId());
-			
-			
+			receipt.setCategoryName(((Category) category_spinner.getSelectedItem()).getName());
+			receipt.setUser(ParseUser.getCurrentUser());
 			
 			Toast.makeText(AddReceiptActivity.this, message, Toast.LENGTH_LONG).show();
 

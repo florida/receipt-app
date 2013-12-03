@@ -1,5 +1,7 @@
 package com.florida.receiptapp;
 
+import java.util.Locale;
+
 import com.florida.receiptapp.classes.Category;
 
 import android.app.Activity;
@@ -10,7 +12,6 @@ import android.widget.Spinner;
 
 
 public class CommonFunctions {
-	
 	public static boolean CheckNetworkStatus(Context context) {	
 		ConnectivityManager cm = (ConnectivityManager) context.getSystemService(Activity.CONNECTIVITY_SERVICE);
 		NetworkInfo netInfo = cm.getActiveNetworkInfo();
@@ -19,9 +20,9 @@ public class CommonFunctions {
 	
 	public static int getIndex(Spinner spinner, String string) {	
 		int index = 0;
-	
+		Locale.getDefault();
 		for (int i = 0; i < spinner.getAdapter().getCount(); i++) {
-			if (((Category) spinner.getItemAtPosition(i)).getObjectId().equals(string)) {
+			if (((Category) spinner.getItemAtPosition(i)).getName().toLowerCase().equals(string)) {
 				index = i;
 			}
 		}

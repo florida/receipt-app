@@ -10,15 +10,6 @@
 	            android:summary="Change receipts list background color"
 	            android:title="Set Background Color" />
 	    
-	    <com.florida.receiptapp.NumberPickerDialogPreference
-	        android:key="@string/pref_key_receipt_list_font_size"
-	        android:defaultValue="14"
-	        android:dialogMessage="Select Article Font Size"
-	        android:max="50"
-	        android:title="Set Article Font Size"
-	        android:summary="Change article font size"
-	        custom:min="10" />
-	    
 	    <ListPreference
             android:key="@string/pref_key_receipt_list_default_sort"
             android:entries="@array/array_default_sort"
@@ -31,7 +22,7 @@
     <PreferenceCategory android:title="@string/pref_title_categories_list">
 	    
 	    <afzkl.development.colorpickerview.preference.ColorPickerPreference
-	            android:defaultValue="0xFF000000"
+	            android:defaultValue="0xFFFFFFFF"
 	            android:key="@string/pref_key_category_background_color"
 	            android:summary="Change Category Background color"
 	            android:title="Set Category Background color" />

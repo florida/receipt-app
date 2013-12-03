@@ -6,7 +6,7 @@
     </string-array>
     
     <string-array name="array_default_sort_values">
-        <item>H9MEsdbCZT</item>
-        <item>6gvRYQYqFj</item>
+        <item>all</item>
+        <item>uncategorized</item>
     </string-array>
 </resources>

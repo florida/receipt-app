@@ -3,9 +3,6 @@ package com.florida.receiptapp;
 import android.content.Intent;
 import android.os.Bundle;
 
-import com.florida.receiptapp.adapters.ReceiptListAdapter;
-import com.florida.receiptapp.classes.Category;
-import com.florida.receiptapp.classes.Receipt;
 import com.florida.receiptapp.fragments.CategoriesFragment;
 import com.florida.receiptapp.fragments.HomeFragement;
 import com.florida.receiptapp.fragments.ReceiptListFragment;
@@ -15,8 +12,6 @@ import com.florida.receiptapp.navbar.NavDrawerAdapter;
 import com.florida.receiptapp.navbar.NavDrawerItem;
 import com.florida.receiptapp.navbar.NavMenuItem;
 import com.florida.receiptapp.navbar.NavMenuSection;
-import com.parse.Parse;
-import com.parse.ParseObject;
 
 public class MainActivity extends AbstractNavDrawerActivity {
 	public static HomeFragement home_fragment = null;
@@ -26,10 +21,6 @@ public class MainActivity extends AbstractNavDrawerActivity {
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		
-		ParseObject.registerSubclass(Receipt.class);
-		ParseObject.registerSubclass(Category.class);
-		Parse.initialize(this, "uAYqM3b7kLiNMn3ly9rLmZS3IeaZA5aRzRavtyto", "s6Gal3CStk0fOVD1AOButBPenI2SNU1MruMbJNkq"); 
-        
         if (findViewById(R.id.frame_content) != null) {
         	if ( savedInstanceState != null ) { return ; }
         	
