@@ -30,8 +30,14 @@ public class AddReceiptActivity extends Activity {
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		 setContentView(R.layout.activity_add_receipt);
+		 categoryadapter = new ParseQueryAdapter<Category>(this, new ParseQueryAdapter.QueryFactory<Category>() {
+				public ParseQuery<Category> create() {
+					ParseQuery<Category> query = ParseQuery.getQuery("Category");
+					query.setCachePolicy(ParseQuery.CachePolicy.NETWORK_ELSE_CACHE);
+					return query;
+				}
+			});
 		 
-		 categoryadapter = new ParseQueryAdapter<Category>(this, Category.class);
 		 categoryadapter.setTextKey("name");
 		 categoryadapter.setPaginationEnabled(false);
 		 category_spinner = (Spinner) findViewById(R.id.spn_category);
@@ -43,6 +49,7 @@ public class AddReceiptActivity extends Activity {
 		 if (receipt_id != null) {
 
 			 ParseQuery<Receipt> query = ParseQuery.getQuery("Receipt");
+			 query.setCachePolicy(ParseQuery.CachePolicy.NETWORK_ELSE_CACHE);
 			 try {
 				receipt = query.get(receipt_id);
 			 } catch (ParseException e) {
@@ -53,7 +60,6 @@ public class AddReceiptActivity extends Activity {
 			 
 			 setEditTextString(R.id.edtxt_store_name, receipt.getStoreName());
 			 setEditTextString(R.id.edtxt_total, String.valueOf(receipt.getTotal()));
-			 setEditTextString(R.id.edtxt_sub_total, String.valueOf(receipt.getSubTotal()));
 			 setEditTextString(R.id.edtxt_gst, String.valueOf(receipt.getGst()));
 			 setEditTextString(R.id.edtxt_pst, String.valueOf(receipt.getPst()));
 			 
@@ -64,9 +70,9 @@ public class AddReceiptActivity extends Activity {
 			@Override
 			public void onLoaded(List<Category> arg0, Exception arg1) {
 				if (receipt == null) {
-					category_spinner.setSelection(getIndex(category_spinner, "6gvRYQYqFj"));
+					category_spinner.setSelection(CommonFunctions.getIndex(category_spinner, "6gvRYQYqFj"));
 				} else {
-					category_spinner.setSelection(getIndex(category_spinner, receipt.getCategoryId()));
+					category_spinner.setSelection(CommonFunctions.getIndex(category_spinner, receipt.getCategoryId()));
 				}
 				
 			}
@@ -79,21 +85,18 @@ public class AddReceiptActivity extends Activity {
 
 	}
 	
-	private int getIndex(Spinner spinner, String string) {	
-		int index = 0;
 	
-		for (int i = 0; i < spinner.getAdapter().getCount(); i++) {
-			if (((Category) spinner.getItemAtPosition(i)).getObjectId().equals(string)) {
-				index = i;
-			}
-		}
-		return index;
-	}
 
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu) {
 		MenuInflater inflater = getMenuInflater();
-		inflater.inflate(R.menu.add_receipt, menu);
+		inflater.inflate(R.menu.receipt_add, menu);
+		
+		if (receipt != null) {
+			MenuItem mi = (MenuItem) menu.getItem(1);			
+			mi.setIcon(R.drawable.ic_delete);
+		}
+		
 		return super.onCreateOptionsMenu(menu);
 	}
 	
@@ -101,17 +104,26 @@ public class AddReceiptActivity extends Activity {
 	public boolean onOptionsItemSelected(MenuItem item) {
 		switch (item.getItemId()) {
 		case R.id.add_receipt:
-			if (receipt == null) {
-				receipt = new Receipt();
-			} 
+			
+			String message = (receipt != null) ? "Receipt Saved" : "Receipt Created";
+			receipt = (receipt == null) ? new Receipt() : receipt;
 			
 			receipt.setStoreName(getEditTextString(R.id.edtxt_store_name));
 			receipt.setTotal(getEditTextFloat(R.id.edtxt_total));
-			receipt.setSubTotal(getEditTextFloat(R.id.edtxt_sub_total));
 			receipt.setGst(getEditTextFloat(R.id.edtxt_gst));
 			receipt.setPst(getEditTextFloat(R.id.edtxt_pst));
 			receipt.setCategoryId(((Category) category_spinner.getSelectedItem()).getObjectId());
-			receipt.saveInBackground();
+			
+			
+			
+			Toast.makeText(AddReceiptActivity.this, message, Toast.LENGTH_LONG).show();
+
+			if (CommonFunctions.CheckNetworkStatus(AddReceiptActivity.this)) {
+				receipt.saveInBackground();
+			} else {
+				receipt.saveEventually();
+			}
+			
 			
 			setResult(Activity.RESULT_OK);
 			finish();
@@ -129,7 +141,14 @@ public class AddReceiptActivity extends Activity {
 					@Override
 					public void onClick(DialogInterface dialog, int which) {
 						Toast.makeText(AddReceiptActivity.this, "Receipt deleted", Toast.LENGTH_LONG).show();
-						receipt.deleteInBackground();
+						
+						
+						if (CommonFunctions.CheckNetworkStatus(AddReceiptActivity.this)) {
+							receipt.deleteInBackground();
+						} else {
+							receipt.deleteEventually();
+						}
+						
 						setResult(Activity.RESULT_OK);
 						finish();
 					}
