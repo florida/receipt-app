@@ -17,6 +17,7 @@ import com.florida.receiptapp.AddCategoryDialogActivity;
 import com.florida.receiptapp.AddReceiptActivity;
 import com.florida.receiptapp.MainActivity;
 import com.florida.receiptapp.R;
+import com.florida.receiptapp.SettingsActivity;
 import com.florida.receiptapp.adapters.HomeNavGridAdapter;
 import com.florida.receiptapp.classes.GridItem;
 
@@ -75,7 +76,8 @@ public class HomeFragement extends Fragment {
 					getActivity().getSupportFragmentManager().beginTransaction().replace(R.id.frame_content, categories_fragment).addToBackStack(null).commit();
 					break;
 				case 4: 
-					
+					Intent settings_intent = new Intent(getActivity(), SettingsActivity.class);
+		        	startActivityForResult(settings_intent, 1);
 					break;
 				case 5:
 					(new AboutAppDialog(getActivity())).show();
