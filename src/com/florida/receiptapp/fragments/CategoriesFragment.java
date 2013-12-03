@@ -7,7 +7,10 @@ import com.florida.receiptapp.classes.Category;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.content.SharedPreferences;
+import android.graphics.Color;
 import android.os.Bundle;
+import android.preference.PreferenceManager;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -21,6 +24,7 @@ import android.widget.ListView;
 public class CategoriesFragment extends Fragment {
 	CategoryAdapter adapter;
 	public static final int REQUEST_CODE_STANDARD = 1;
+	ListView lv;
 	@Override
 	public View onCreateView(LayoutInflater inflater, ViewGroup container,
 			Bundle savedInstanceState) {
@@ -38,6 +42,7 @@ public class CategoriesFragment extends Fragment {
 			}
 		});
 		ListView listview = (ListView) view.findViewById(R.id.listview_category);
+		lv = listview;
 		adapter = new CategoryAdapter(getActivity());
 		listview.setAdapter(adapter);
 		listview.setOnItemClickListener(new OnItemClickListener() {
@@ -52,8 +57,22 @@ public class CategoriesFragment extends Fragment {
 			}
 		
 		});
+		
+		SharedPreferences settings = PreferenceManager.getDefaultSharedPreferences(getActivity());
+		lv.setBackgroundColor(settings.getInt((String) getResources().getText(R.string.pref_key_category_background_color), Color.TRANSPARENT));
+		
 		return view;
 	}
+	
+	@Override
+	public void onResume() {
+		// TODO Auto-generated method stub
+		SharedPreferences settings = PreferenceManager.getDefaultSharedPreferences(getActivity());
+		lv.setBackgroundColor(settings.getInt((String) getResources().getText(R.string.pref_key_category_background_color), Color.TRANSPARENT));
+		adapter.loadObjects();
+		super.onResume();
+	}
+
 	@Override
 	public void onActivityResult(int requestCode, int resultCode, Intent data) {
 		// TODO Auto-generated method stub
