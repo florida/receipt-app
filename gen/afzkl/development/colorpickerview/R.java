@@ -16,19 +16,19 @@ public final class R {
 		public static final int showSelectedColorInList = 0x7f010001;
 	}
 	public static final class drawable {
-		public static final int icon = 0x7f020014;
+		public static final int icon = 0x7f020015;
 	}
 	public static final class id {
 		public static final int color_panel_new = 0x7f050002;
 		public static final int color_panel_old = 0x7f050001;
 		public static final int color_picker_view = 0x7f050000;
 		public static final int dialog_color_picker_extra_layout_landscape = 0x7f050004;
-		public static final int layout1 = 0x7f050011;
+		public static final int layout1 = 0x7f050020;
 		public static final int preference_preview_color_panel = 0x7f050003;
 	}
 	public static final class layout {
-		public static final int dialog_color_picker = 0x7f030003;
-		public static final int preference_preview_layout = 0x7f03000b;
+		public static final int dialog_color_picker = 0x7f030006;
+		public static final int preference_preview_layout = 0x7f03000e;
 	}
 	public static final class string {
 		public static final int app_name = 0x7f060000;
