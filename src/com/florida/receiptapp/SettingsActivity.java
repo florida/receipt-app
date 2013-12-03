@@ -3,8 +3,6 @@ package com.florida.receiptapp;
 import android.os.Bundle;
 import android.preference.PreferenceActivity;
 import android.preference.PreferenceFragment;
-import android.app.Activity;
-import android.view.Menu;
 
 public class SettingsActivity extends PreferenceActivity {
 	@Override
