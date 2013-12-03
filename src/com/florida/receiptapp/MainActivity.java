@@ -3,6 +3,7 @@ package com.florida.receiptapp;
 import android.content.Intent;
 import android.os.Bundle;
 
+import com.florida.receiptapp.adapters.ReceiptListAdapter;
 import com.florida.receiptapp.classes.Category;
 import com.florida.receiptapp.classes.Receipt;
 import com.florida.receiptapp.fragments.CategoriesFragment;
@@ -72,8 +73,8 @@ public class MainActivity extends AbstractNavDrawerActivity {
             getSupportFragmentManager().beginTransaction().replace(R.id.frame_content, home_fragment).addToBackStack(null).commit();
             break;
         case 102:
-        	Intent intent = new Intent(this, AddReceiptActivity.class);
-        	startActivity(intent);
+        	Intent receipt_intent = new Intent(this, AddReceiptActivity.class);
+        	startActivityForResult(receipt_intent, ReceiptListFragment.REQUEST_CODE_STANDARD);
             break;
         case 103:
         	if (receipt_list_fragment == null) {
@@ -83,8 +84,8 @@ public class MainActivity extends AbstractNavDrawerActivity {
             break;
             
         case 104:
-        	Intent i = new Intent(this, AddCategoryDialogActivity.class);
-        	startActivity(i);
+        	Intent categories_intent = new Intent(this, AddCategoryDialogActivity.class);
+        	startActivityForResult(categories_intent, CategoriesFragment.REQUEST_CODE_STANDARD);
             break;
         case 105:
         	if (categories_fragment == null) {
@@ -93,7 +94,8 @@ public class MainActivity extends AbstractNavDrawerActivity {
         	getSupportFragmentManager().beginTransaction().replace(R.id.frame_content, categories_fragment).addToBackStack(null).commit();
             break;
         case 201:
-        	
+        	Intent settings_intent = new Intent(this, SettingsActivity.class);
+        	startActivityForResult(settings_intent, 1);
         	break;
         	
         case 202:
