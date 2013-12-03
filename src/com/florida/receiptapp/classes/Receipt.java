@@ -1,8 +1,11 @@
 package com.florida.receiptapp.classes;
 
+import java.util.Locale;
+
 import com.parse.ParseClassName;
 import com.parse.ParseFile;
 import com.parse.ParseObject;
+import com.parse.ParseUser;
 
 @ParseClassName("Receipt")
 public class Receipt extends ParseObject {
@@ -57,12 +60,30 @@ public class Receipt extends ParseObject {
 		put("photo", file);
 	}
 	
-	public void setCategoryId(String category) {
-		put("category_id", category);
+	public void setCategoryId(String category_id) {
+		put("category_id", category_id);
 	}
 	
 	public String getCategoryId() {
 		return getString("category_id");
 	}
+	
+	public void setCategoryName(String category_name) {
+		Locale.getDefault();
+		put("category_name", category_name.toLowerCase());
+	}
+	
+	public String getCategoryName() {
+		Locale.getDefault();
+		return getString("category_name").toLowerCase();
+	}
 
+	public void setUser(ParseUser _user) {
+		put("user", _user);
+	}
+	
+	public ParseUser getUser(){
+		return getParseUser("user");
+	}
+	
 }
