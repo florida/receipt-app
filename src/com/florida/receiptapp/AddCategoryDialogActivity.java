@@ -1,5 +1,7 @@
 package com.florida.receiptapp;
 
+import java.util.Locale;
+
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
@@ -15,6 +17,7 @@ import android.widget.Toast;
 import com.florida.receiptapp.classes.Category;
 import com.parse.ParseException;
 import com.parse.ParseQuery;
+import com.parse.ParseUser;
 
 public class AddCategoryDialogActivity extends Activity {
 	Button create, cancel;
@@ -74,7 +77,8 @@ public class AddCategoryDialogActivity extends Activity {
 					e.printStackTrace();
 				}
 				
-				if (unique_result == null || (category != null && category.getName().equals(category_name.getText().toString()))) {
+				Locale.getDefault();
+				if (unique_result == null || (category != null && category.getName().toLowerCase().equals(category_name.getText().toString().toLowerCase()))) {
 					String message = (category  != null) ? "Category Saved" : "Category Created";
 
 					category = (category == null) ? new Category() : category;
@@ -83,6 +87,7 @@ public class AddCategoryDialogActivity extends Activity {
 					Toast.makeText(AddCategoryDialogActivity.this, message, Toast.LENGTH_LONG).show();
 					
 					category.setName(category_name.getText().toString());
+					category.setUser(ParseUser.getCurrentUser());
 					if (CommonFunctions.CheckNetworkStatus(AddCategoryDialogActivity.this)) {
 						category.saveInBackground();
 					} else {
@@ -111,7 +116,7 @@ public class AddCategoryDialogActivity extends Activity {
 			case R.id.btn_cancel_create_category:
 				if (category != null) {
 					
-					if (category.getObjectId().equals("H9MEsdbCZT") || category.getObjectId().equals("6gvRYQYqFj")) {
+					if (category.getName().equals("All") || category.getName().equals("Uncategorized")) {
 						AlertDialog.Builder alert_dialog = new AlertDialog.Builder(AddCategoryDialogActivity.this);
 						alert_dialog.setTitle("Can't delete category");
 						alert_dialog.setMessage("Can't create default categories");
