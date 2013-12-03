@@ -14,4 +14,13 @@ public class Category extends ParseObject {
 	public String getName() {
 		return getString("name");
 	}
+	
+	public void setUser(ParseObject _user) {
+		put("user", _user);
+	}
+	
+	public ParseObject getUser(){
+		return getParseObject("user");
+	}
+	
 }
