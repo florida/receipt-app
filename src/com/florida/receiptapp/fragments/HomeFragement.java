@@ -32,13 +32,13 @@ public class HomeFragement extends Fragment {
 		// Bitmap receipt_add = BitmapFactory.decodeResource(this.getResources(), R.drawable.receipt_add);
 		
 		grid_array = new ArrayList<GridItem>();
-		grid_array.add(new GridItem("ic_receipt_add", "Add Receipt", getActivity()));
-		grid_array.add(new GridItem("ic_receipts", " Receipts", getActivity()));
-		grid_array.add(new GridItem("ic_category_add", "Add Category", getActivity()));
-		grid_array.add(new GridItem("ic_categories", "Categories", getActivity()));
-		grid_array.add(new GridItem("ic_settings", "Settings", getActivity()));
-		grid_array.add(new GridItem("ic_about", "About App", getActivity()));
-		grid_array.add(new GridItem("ic_quit", " Quit", getActivity()));
+		grid_array.add(new GridItem("ic_grid_receipt_add", "Add Receipt", getActivity()));
+		grid_array.add(new GridItem("ic_grid_receipts", " Receipts", getActivity()));
+		grid_array.add(new GridItem("ic_grid_category_add", "Add Category", getActivity()));
+		grid_array.add(new GridItem("ic_grid_categories", "Categories", getActivity()));
+		grid_array.add(new GridItem("ic_grid_settings", "Settings", getActivity()));
+		grid_array.add(new GridItem("ic_grid_about", "About App", getActivity()));
+		grid_array.add(new GridItem("ic_grid_quit", " Quit", getActivity()));
 		
 		grid_view = (GridView) view.findViewById(R.id.gridView1);
 		grid_adapter = new HomeNavGridAdapter(getActivity(), R.layout.home_row_grid, grid_array);
