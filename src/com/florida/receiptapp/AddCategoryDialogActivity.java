@@ -65,10 +65,10 @@ public class AddCategoryDialogActivity extends Activity {
 		public void onClick(View v) {
 			switch (v.getId()) {
 			case R.id.btn_create_category:
-				
+				Locale.getDefault();
 				ParseQuery<Category> query = ParseQuery.getQuery("Category");
 				query.setCachePolicy(ParseQuery.CachePolicy.NETWORK_ELSE_CACHE);
-				query.whereEqualTo("name", category_name.getText().toString());
+				query.whereEqualTo("name_lowercase", category_name.getText().toString().toLowerCase());
 				Category unique_result = null;
 				try {
 					unique_result = query.getFirst();
@@ -78,7 +78,7 @@ public class AddCategoryDialogActivity extends Activity {
 				}
 				
 				Locale.getDefault();
-				if (unique_result == null || (category != null && category.getName().toLowerCase().equals(category_name.getText().toString().toLowerCase()))) {
+				if (unique_result == null || (category != null && category.getNameLowerCase().equals(category_name.getText().toString().toLowerCase()))) {
 					String message = (category  != null) ? "Category Saved" : "Category Created";
 
 					category = (category == null) ? new Category() : category;
