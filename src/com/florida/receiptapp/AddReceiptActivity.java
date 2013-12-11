@@ -8,9 +8,12 @@ import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.KeyEvent;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
+import android.view.View;
+import android.view.View.OnKeyListener;
 import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.Toast;
@@ -20,13 +23,15 @@ import com.florida.receiptapp.classes.Receipt;
 import com.parse.ParseException;
 import com.parse.ParseQuery;
 import com.parse.ParseQueryAdapter;
-import com.parse.ParseUser;
 import com.parse.ParseQueryAdapter.OnQueryLoadListener;
+import com.parse.ParseUser;
 
 public class AddReceiptActivity extends Activity {
 	private Receipt receipt = null;
 	private ParseQueryAdapter<Category> categoryadapter;
 	private Spinner category_spinner;
+	final double GST_RATE = 0.08;
+	final double PST_RATE = 0.15;
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -47,6 +52,23 @@ public class AddReceiptActivity extends Activity {
 		 
 		 Intent intent = getIntent();
 		 String receipt_id = intent.getStringExtra("receipt_id");
+		 final EditText edtxt_total = (EditText) findViewById(R.id.edtxt_total);
+		 final EditText edtxt_gst = (EditText) findViewById(R.id.edtxt_gst);
+		 final EditText edtxt_pst = (EditText) findViewById(R.id.edtxt_pst);
+		 
+		 edtxt_total.setOnKeyListener(new OnKeyListener() {
+			
+			@Override
+			public boolean onKey(View v, int keyCode, KeyEvent event) {
+				if (event.getAction() == KeyEvent.ACTION_UP) {
+					double gst = Double.parseDouble(edtxt_total.getText().toString()) * GST_RATE;
+					double pst = Double.parseDouble(edtxt_total.getText().toString()) * PST_RATE;
+					edtxt_gst.setText(Double.toString(gst));
+					edtxt_pst.setText(Double.toString(pst));
+				}
+				return false;
+			}
+		});
 		 
 		 if (receipt_id != null) {
 
@@ -72,7 +94,7 @@ public class AddReceiptActivity extends Activity {
 			@Override
 			public void onLoaded(List<Category> arg0, Exception arg1) {
 				if (receipt == null) {
-					category_spinner.setSelection(CommonFunctions.getIndex(category_spinner, "Uncategorized"));
+					category_spinner.setSelection(CommonFunctions.getIndex(category_spinner, "uncategorized"));
 				} else {
 					category_spinner.setSelection(CommonFunctions.getIndex(category_spinner, receipt.getCategoryName()));
 				}
