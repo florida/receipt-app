@@ -22,7 +22,7 @@ public class CommonFunctions {
 		int index = 0;
 		Locale.getDefault();
 		for (int i = 0; i < spinner.getAdapter().getCount(); i++) {
-			if (((Category) spinner.getItemAtPosition(i)).getName().toLowerCase().equals(string)) {
+			if (((Category) spinner.getItemAtPosition(i)).getName().toLowerCase().equals(string.toLowerCase())) {
 				index = i;
 			}
 		}
