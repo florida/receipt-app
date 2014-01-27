@@ -7,7 +7,6 @@ import com.florida.receiptapp.classes.GridItem;
 
 import android.app.Activity;
 import android.content.Context;
-import android.graphics.drawable.Drawable;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -38,7 +37,6 @@ public class HomeNavGridAdapter extends ArrayAdapter<GridItem> {
 			
 			holder = new RowHolder();
 			holder.txt_title = (TextView) row.findViewById(R.id.item_text);
-			//holder.image_item = (ImageView) row.findViewById(R.id.item_image);
 			row.setTag(holder);
 		} else {
 			holder = (RowHolder) row.getTag();
@@ -46,10 +44,7 @@ public class HomeNavGridAdapter extends ArrayAdapter<GridItem> {
 		
 		GridItem item = data.get(position);
 		holder.txt_title.setText(item.getTitle());
-		Drawable img = parent.getResources().getDrawable(item.getImage());
-		img.setBounds(0,0,180,180);
-		holder.txt_title.setCompoundDrawables(null, img, null, null);
-		
+		holder.txt_title.setCompoundDrawablesWithIntrinsicBounds(0, item.getImage(), 0, 0);	
 		
 		return row;
 	}
