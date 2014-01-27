@@ -134,7 +134,6 @@ public class ParseSignUp extends Activity implements OnClickListener{
 		} else {
 			// Show a progress spinner, and kick off a background task to
 			// perform the user login attempt.
-			Toast.makeText(getApplicationContext(), "signUp", Toast.LENGTH_SHORT).show();
 			signUp(mUsername.toLowerCase(Locale.getDefault()), mEmail, mPassword);
 
 		}
